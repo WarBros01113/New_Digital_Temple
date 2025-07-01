@@ -1,0 +1,18 @@
+[
+  {
+    "id": "7e1e974d-be44-4c5b-9e71-bee48c5974df",
+    "name": "war",
+    "email": "gss391256@gmail.com",
+    "password": "$2a$12$KLJx7kE0ajYi2Qq7Ch72..A5auncTTzghUl4LG853fv0p/o3/bZna",
+    "religion": "hinduism",
+    "createdAt": "2025-06-30T16:14:15.013Z"
+  },
+  {
+    "id": "264e5900-7b4f-4be2-982f-fd9d151368bb",
+    "name": "ays",
+    "email": "ayswargss@gmail.com",
+    "password": "$2a$12$4HhlD8YDXmV2wIWOsKPKyuakYU8MPNoGkdMTsVomXaevN08q3/2kK",
+    "religion": "hinduism",
+    "createdAt": "2025-07-01T02:25:14.332Z"
+  }
+]
