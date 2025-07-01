@@ -8,9 +8,6 @@ import { checkRagHealth } from './services/ragService.js';
 
 dotenv.config();
 
-// Connect to MongoDB
-connectDB();
-
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -41,7 +38,20 @@ app.get('/api/rag-status', async (req, res) => {
   res.json(ragStatus);
 });
 
-app.listen(PORT, () => {
-  console.log(`🏛️  Digital Temple server running on port ${PORT}`);
-  console.log(`📚 RAG server expected at: ${process.env.RAG_SERVER_URL || 'http://localhost:5000'}`);
-});
+// Start server only after database connection is established
+const startServer = async () => {
+  try {
+    // Wait for MongoDB connection before starting the server
+    await connectDB();
+    
+    app.listen(PORT, () => {
+      console.log(`🏛️  Digital Temple server running on port ${PORT}`);
+      console.log(`📚 RAG server expected at: ${process.env.RAG_SERVER_URL || 'http://localhost:5000'}`);
+    });
+  } catch (error) {
+    console.error('❌ Failed to start server:', error.message);
+    process.exit(1);
+  }
+};
+
+startServer();
